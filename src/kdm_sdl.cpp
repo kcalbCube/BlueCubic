@@ -3,7 +3,8 @@
 Point::Point(int x, int y)
 	: point{ x, y } {}
 
-Point::Point(void) {}
+Point::Point(void) 
+	: point{ 0, 0 } {}
 
 Point::Point(const SDL_Point& point_)
 	: point{ point_ } {}
@@ -21,7 +22,8 @@ Point::operator SDL_Point(void)
 Rect::Rect(int x, int y, int w, int h)
 	: rect{ x, y, w, h } {}
 
-Rect::Rect(void) {}
+Rect::Rect(void)
+	: rect{ 0, 0, 0, 0 } {}
 
 Rect::Rect(const SDL_Rect& rectangle)
 	: rect{ rectangle } {}
@@ -58,17 +60,6 @@ Color::Color(int r, int g, int b)
 
 Color::Color(void) {}
 
-/*
-Color& Color::operator=(unsigned long hexColor)
-{
-	red = hexColor & 0xFF0000;
-	green = hexColor & 0x00FF00;
-	blue = hexColor & 0x0000FF;
-
-	red >> (8 << 2 << 2);
-	green >> (8 << 2);
-}
-*/
 
 bool Color::operator==(const Color& color) const
 {
@@ -131,4 +122,9 @@ void fillRect(const Rect& rect, const Color& color)
 void delay(unsigned int ms)
 {
 	SDL_Delay(ms);
+}
+
+const Uint8* getKeyboardState(void)
+{
+	return SDL_GetKeyboardState(nullptr);
 }

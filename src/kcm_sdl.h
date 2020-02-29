@@ -97,3 +97,11 @@ void renderClear(const Color& color = NONCOLOR);
 void fillRect(const Rect& rect, const Color& color = NONCOLOR);
 
 void delay(unsigned int ms);
+
+// Get keyboard state.
+// Use: getKeyboardState()[scancode];
+// Example:
+// auto state = getKeyboardState();
+// if(state[SDL_SCANCODE_A])
+//		...
+const Uint8* getKeyboardState(void);

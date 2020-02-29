@@ -110,18 +110,23 @@ public:
 	}
 
 	// before graphic / font initializing
-	// Use for initializing custom level generator
+	// Use for example
+	// for initializing custom level generator
 	virtual void preLoad(void) {}
 
-	// before main loop
+	// before main loop.
+	// Use for example for change body.
 	virtual void load(void) {}
 
 	// function FOR RENDER ONLY.
 	virtual void render(void) {}
 
 	// at main loop, after all actions.
+	// Use for example for keyboard / mouse 
+	// handling
 	virtual void tick(void) {}
 
-	// at destroy
+	// at destroy.
+	// Use for say bye or etc.
 	virtual void destroy(void) {}
 };
