@@ -59,8 +59,6 @@ public:
 	Color(int r, int g, int b);
 	Color(void);
 
-	//Color& operator=(unsigned long hexColor);
-
 	bool operator==(const Color& color) const;
 
 	bool operator!=(const Color& color) const;
@@ -105,3 +103,26 @@ void delay(unsigned int ms);
 // if(state[SDL_SCANCODE_A])
 //		...
 const Uint8* getKeyboardState(void);
+
+class Font
+{
+public:
+	TTF_Font* font = nullptr;
+
+	Font(const std::string& 
+		fontFile = ::fontFile,
+		unsigned int fontSize = ::fontSize);
+
+	~Font(void);
+
+	operator TTF_Font* (void);
+	operator const TTF_Font* (void) const;
+};
+
+void kcmDisplayText(const std::string& string,
+	const Rect& rect, const Color& color,
+	const Font& font= ::font);
+
+void kcmDisplayText(const std::string& string,
+	int x, int y, const Color& color,
+	const Font& font = ::font);

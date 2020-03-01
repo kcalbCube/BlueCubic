@@ -15,29 +15,6 @@ extern Vector gravity;
 extern std::string fontFile;
 extern unsigned int fontSize;
 
-void displayText(const std::string& str, SDL_Color color, const SDL_Rect& rect);
-
-void displayText(const std::string& str, SDL_Color color, int x, int y);
-
-void sdisplayText(TTF_Font* font, const std::string& str,
-	SDL_Color color, const SDL_Rect& rect);
-
-void sdisplayText(TTF_Font* font, const std::string& str,
-	SDL_Color color, int x, int y);
-
-class TextLocation : public ILocation
-{
-	SDL_Color color;
-	std::string text;
-	TTF_Font* font;
-public:
-
-	TextLocation(const std::string& tex, SDL_Color col, TTF_Font* fon=::font)
-		: text{ tex }, color{ col }, font{ fon } {}
-
-	virtual void display(void);
-
-};
 // Set gravity.
 void setGravity(const Vector& vector);
 
@@ -74,6 +51,7 @@ public:
 
 static ILevelGenerator* levelGenerator = new StandartLevelGenerator();
 
+// set custom level generator.
 // example:
 // class RedLevel : public ILevelGenerator
 // { ... }
