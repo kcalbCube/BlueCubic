@@ -2,7 +2,6 @@
 
 #include "kcm.h"
 #include "core.h"
-#include <SDL.h>
 
 class Point
 {
@@ -120,9 +119,9 @@ public:
 };
 
 void kcmDisplayText(const std::string& string,
-	const Rect& rect, const Color& color,
-	const Font& font= ::font);
+	const Color& color, const Rect& rect,
+	TTF_Font* font);
 
 void kcmDisplayText(const std::string& string,
-	int x, int y, const Color& color,
-	const Font& font = ::font);
+	const Color& color, int x, int y,
+	TTF_Font* font);

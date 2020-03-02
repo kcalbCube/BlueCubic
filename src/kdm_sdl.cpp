@@ -129,9 +129,8 @@ const Uint8* getKeyboardState(void)
 	return SDL_GetKeyboardState(nullptr);
 }
 
-Font::Font(const std::string&
-	fontFile = ::fontFile,
-	unsigned int fontSize = ::fontSize)
+Font::Font(const std::string& fontFile,
+	unsigned int fontSize)
 {
 	this->font = 
 		TTF_OpenFont(fontFile.c_str(), 
@@ -154,10 +153,14 @@ Font::operator const TTF_Font* (void) const
 }
 
 void kcmDisplayText(const std::string& string,
-	const Rect& rect, const Color& color,
-	const Font& font)
+	const Color& color, const Rect& rect,
+	TTF_Font* font)
 {
-	SDL_Surface* surf = TTF_RenderText_Blended(font, str.c_str(), color);
+	SDL_Surface* surf = TTF_RenderText_Blended(font, string
+		.c_str(), 
+		{ color.redUint8, 
+		color.greenUint8, 
+		color.blueUint8 });
 	zAssert(surf, TTF_GetError());
 
 	SDL_Texture* text = SDL_CreateTextureFromSurface(renderer, surf);
@@ -170,10 +173,14 @@ void kcmDisplayText(const std::string& string,
 }
 
 void kcmDisplayText(const std::string& string,
-	int x, int y, const Color& color,
-	const Font& font)
+	const Color& color, int x, int y,
+	TTF_Font* font)
 {
-	SDL_Surface* surf = TTF_RenderText_Blended(font, str.c_str(), color);
+	SDL_Surface* surf = TTF_RenderText_Blended(font, string
+		.c_str(),
+		{ color.redUint8,
+		color.greenUint8,
+		color.blueUint8 });
 	zAssert(surf, TTF_GetError());
 
 	SDL_Texture* text = SDL_CreateTextureFromSurface(renderer, surf);

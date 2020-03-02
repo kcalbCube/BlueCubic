@@ -1,10 +1,10 @@
 #pragma once
 
-#include <SDL.h>
 #include <vector>
 #include <string>
-#include <SDL_ttf.h>
+
 #include "core.h"
+
 class ILocation
 {
 public:

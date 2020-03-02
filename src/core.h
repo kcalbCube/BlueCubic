@@ -1,6 +1,7 @@
 #pragma once
-#include <SDL.h>
-#include <SDL_ttf.h>
+
+#include "../include/SDL.h"
+#include "../include/SDL_ttf.h"
 #include <string>
 
 extern SDL_Window*   window;

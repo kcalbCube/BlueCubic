@@ -1,5 +1,4 @@
 #include "map.h"
-#include <SDL_ttf.h>
 #include <cassert>
 
 ILocation*& Map::getCur(void)

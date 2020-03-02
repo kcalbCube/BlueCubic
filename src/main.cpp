@@ -1,12 +1,10 @@
 ﻿#include <iostream>
-#include <SDL.h>
-#include <SDL_ttf.h>
 #include <ctime>
 #include <functional>
 #include <vector>
 #include <string>
 
-
+#include "core.h"
 
 #include "vector.h"
 #include "map.h"
