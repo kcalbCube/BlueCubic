@@ -12,9 +12,10 @@ public:
 
 	virtual void tick(void) override
 	{
-		auto state = SDL_GetKeyboardState(nullptr);
+		auto state = kcmGetKeyboardState();
 
 		static clock_t last = clock();
+
 		if (state[SDL_SCANCODE_S] && clock() - last > 500)
 		{
 			if (body->pos.y < 100)

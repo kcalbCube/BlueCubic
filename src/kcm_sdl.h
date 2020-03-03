@@ -101,7 +101,7 @@ void delay(unsigned int ms);
 // auto state = getKeyboardState();
 // if(state[SDL_SCANCODE_A])
 //		...
-const Uint8* getKeyboardState(void);
+const Uint8* kcmGetKeyboardState(void);
 
 class Font
 {

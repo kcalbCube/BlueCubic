@@ -16,14 +16,26 @@
 
 #include "mods_list.h"
 
-
-
+#define MAJOR_VERSION     0
+#define MINOR_VERSION     4
+#define SUB_MINOR_VERSION 6
 
 
 #define FOR_ALL_MODS(x) for (auto& mod : modList) x
+
 #undef main
 int main(void)
 {
+	std::cout << "BlueCubic v" << MAJOR_VERSION <<
+		'.' << MINOR_VERSION;
+
+#if SUB_MINOR_VERSION != 0
+	std::cout << '.' << SUB_MINOR_VERSION;
+#endif
+
+	std::cout << std::endl << std::endl;
+
+
 	if (modList.empty() == false)
 	{
 		std::vector<Mod*> nModList;
@@ -57,8 +69,7 @@ int main(void)
 
 	levelGenerator->generate();
 
-
-	font     = TTF_OpenFont(fontFile.c_str(), fontSize);
+	font     = kcmCreateFont(fontFile, fontSize);
 	
 	window   = SDL_CreateWindow("BlueCubic", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 650, 650, SDL_WINDOW_SHOWN);
 	renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
@@ -77,10 +88,10 @@ int main(void)
 		FOR_ALL_MODS(mod->render());
 
 		renderPresent();
-		delay(100 / 4);
+		delay(100 / 6);
 
-		auto state = SDL_GetKeyboardState(nullptr);
-
+		auto state = kcmGetKeyboardState();
+	
 		if (state[SDL_SCANCODE_SPACE])
 			body->jump();
 

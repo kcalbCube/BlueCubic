@@ -124,7 +124,7 @@ void delay(unsigned int ms)
 	SDL_Delay(ms);
 }
 
-const Uint8* getKeyboardState(void)
+const Uint8* kcmGetKeyboardState(void)
 {
 	return SDL_GetKeyboardState(nullptr);
 }
