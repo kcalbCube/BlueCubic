@@ -2,7 +2,6 @@
 
 #include "kcm.h"
 #include "core.h"
-#include <SDL.h>
 
 class Point
 {
@@ -59,8 +58,6 @@ public:
 	Color(int r, int g, int b);
 	Color(void);
 
-	//Color& operator=(unsigned long hexColor);
-
 	bool operator==(const Color& color) const;
 
 	bool operator!=(const Color& color) const;
@@ -104,4 +101,27 @@ void delay(unsigned int ms);
 // auto state = getKeyboardState();
 // if(state[SDL_SCANCODE_A])
 //		...
-const Uint8* getKeyboardState(void);
+const Uint8* kcmGetKeyboardState(void);
+
+class Font
+{
+public:
+	TTF_Font* font = nullptr;
+
+	Font(const std::string& 
+		fontFile = ::fontFile,
+		unsigned int fontSize = ::fontSize);
+
+	~Font(void);
+
+	operator TTF_Font* (void);
+	operator const TTF_Font* (void) const;
+};
+
+void kcmDisplayText(const std::string& string,
+	const Color& color, const Rect& rect,
+	TTF_Font* font);
+
+void kcmDisplayText(const std::string& string,
+	const Color& color, int x, int y,
+	TTF_Font* font);

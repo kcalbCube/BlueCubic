@@ -32,9 +32,8 @@ public:
 
 	virtual void render(void) override
 	{
-		sdisplayText(this->font, std::to_string(score),
-			{ 255, 255, 255 }, 20, 20);
-
+		kcmDisplayText(std::to_string(score),
+			Color(255, 255, 255), 20, 20, this->font);
 		for (auto& c : scores)
 			fillRect(Rect(c.x, c.y, 16, 16), c.color);
 	}
